@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Capstone</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- MathJax for rendering mathematical formulas -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header class="flex items-center justify-between p-4 bg-white shadow-md">
+        <!-- Logo on the left -->
+        <div>
+            <img src="LOGO_HIV-removebg-preview.png" alt="Logo" class="h-10">
+        </div> 
+        <!-- Menu Button on the right -->
+        <div class="relative">
+            <button class="menu-button bg-gray-800 text-white px-4 py-2 rounded">☰ Menu</button>
+            <div id="menu" class="hidden absolute right-0 mt-2 bg-gray-800 text-white w-48 shadow-lg">
+                <a href="#home" class="block px-4 py-2 hover:bg-gray-700">Home</a>
+                <a href="#" id="about-link" class="block px-4 py-2 hover:bg-gray-700">About</a>
+                <a href="#cases-per-year" class="block px-4 py-2 hover:bg-gray-700">Cases Per Year</a>
+                <a href="#stages-of-hiv" class="block px-4 py-2 hover:bg-gray-700">Stages of HIV</a>
+            </div>
+        </div>    
+    </header>
+        <div id="about-section" class="hidden fixed inset-0 bg-white flex flex-col justify-center items-center text-center p-16 overflow-auto">
+            <button id="exit-about" class="absolute top-4 right-4 px-4 py-2 bg-gray-800 text-white rounded">Exit</button>
+            <h2 class="text-5xl font-bold mb-8 text-gray-900">About HIV/AIDS</h2>
+            <p class="about-text max-w-4xl">Human immunodeficiency virus (HIV) is a virus that attacks the body’s immune system. Acquired immunodeficiency syndrome (AIDS) occurs at the most advanced stage of infection.</p>
+            <p class="about-text max-w-4xl mt-6">HIV targets the body’s white blood cells, weakening the immune system. This makes it easier to get sick with diseases like tuberculosis, infections, and some cancers.</p>
+            <p class="about-text max-w-4xl mt-6">HIV is spread from the body fluids of an infected person, including blood, breast milk, semen, and vaginal fluids. It is not spread by kisses, hugs, or sharing food. It can also spread from a mother to her baby.</p>
+            <p class="about-text max-w-4xl mt-6">HIV can be prevented and treated with antiretroviral therapy (ART). Untreated HIV can progress to AIDS, often after many years.</p>
+            <p class="about-text max-w-4xl mt-6">WHO now defines Advanced HIV Disease (AHD) as CD4 cell count less than 200 cells/mm³ or WHO stage 3 or 4 in adults and adolescents. All children younger than 5 years of age living with HIV are considered to have advanced HIV disease.</p>
+        </div>  
+        <div id="cases-per-year" class="hidden fixed inset-0 bg-white flex flex-col justify-center items-center text-center p-16 overflow-auto">
+            <button id="exit-cases" class="absolute top-4 right-4 px-4 py-2 bg-gray-800 text-white rounded">Exit</button>
+            <h2 class="text-5xl font-bold mb-8 text-gray-900">Cases Per Year</h2>
+            <div class="chart-container">
+                <canvas id="hivChart"></canvas>
+            </div>
+        </div>
+        <div id="stages-of-hiv" class="hidden fixed inset-0 bg-white flex flex-col justify-center items-center text-center p-16 overflow-auto">
+            <button id="exit-stages" class="absolute top-4 right-4 px-4 py-2 bg-gray-800 text-white rounded">Exit</button>
+            <h2 class="text-5xl font-bold mb-8 text-gray-900">There are three stages of HIV infection:</h2>
+            <p class="stages-text max-w-4xl mt-6"><strong>Acute HIV Infection</strong><br>Acute HIV infection is the earliest stage of HIV infection, and it generally develops within 2 to 4 weeks after infection with HIV. During this time, some people have flu-like symptoms, such as fever, headache, and rash. In the acute stage of infection, HIV multiplies rapidly and spreads throughout the body. The virus attacks and destroys the infection-fighting CD4 cells (CD4 T lymphocyte) of the immune system. During the acute HIV infection stage, the level of HIV in the blood is very high, which greatly increases the risk of HIV transmission. A person may experience significant health benefits if they start ART during this stage.</p>
+            <p class="stages-text max-w-4xl mt-6"><strong>Chronic HIV Infection</strong><br>The second stage of HIV infection is chronic HIV infection (also called asymptomatic HIV infection or clinical latency). During this stage, HIV continues to multiply in the body but at very low levels. People with chronic HIV infection may not have any HIV-related symptoms. Without ART, chronic HIV infection usually advances to AIDS in 10 years or longer, though in some people it may advance faster. People who are taking ART may be in this stage for several decades. While it is still possible to transmit HIV to others during this stage, people who take ART exactly as prescribed and maintain an undetectable viral load have effectively no risk of transmitting HIV to an HIV-negative partner through sex.</p>
+            <p class="stages-text max-w-4xl mt-6"><strong>AIDS</strong><br>AIDS is the final, most severe stage of HIV infection. Because HIV has severely damaged the immune system, the body cannot fight off opportunistic infections. (Opportunistic infections are infections and infection-related cancers that occur more frequently or are more severe in people with weakened immune systems than in people with healthy immune systems.) People with HIV are diagnosed with AIDS if they have a CD4 count of less than 200 cells/mm3 or if they have certain opportunistic infections. Once a person is diagnosed with AIDS, they can have a high viral load and are able to transmit HIV to others very easily. Without treatment, people with AIDS typically survive about 3 years.</p>
+        </div>
+    <main>
+        <div class="number-of-cases" style="width: 80vw; height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; margin: 40px auto; box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); border-radius: 10px; position: relative;">
+            <h2 style="margin-top: 10px;">Number of Cases</h2>
+            <canvas id="casesChart" style="width: 100%; height: 90%;"></canvas>
+        </div>
+        <div class="hiv-prediction container" style="width: 50vw; padding: 20px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); border-radius: 10px; margin-top: 20px; border: 1px solid rgba(0, 0, 0, 0.1);">
+            <h3 style="font-weight: bold; font-size: 1.5em;">HIV Prediction Formula</h3>
+            <p class="formula">\( C(t) = C_0 + \frac{R_0}{\alpha} \ln(1 + \beta e^{-\alpha t}) \)</p>
+
+            <label>Initial Cases (C₀):</label>
+            <input type="number" id="C0" placeholder="Enter C₀" required>
+    
+            <label>Initial Infection Rate (R₀):</label>
+            <input type="number" id="R0" placeholder="Enter R₀" required>
+    
+            <label>Decay Factor (α):</label>
+            <input type="number" id="alpha" placeholder="Enter α" required>
+    
+            <label>Saturation Effect (β):</label>
+            <input type="number" id="beta" placeholder="Enter β" required>
+    
+            <label>Years (t):</label>
+            <input type="number" id="t" placeholder="Enter t" required>
+    
+            <button onclick="calculateHIV()">Calculate C(t)</button>
+    
+            <div class="result" id="result"></div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

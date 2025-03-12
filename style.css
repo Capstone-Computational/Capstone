@@ -1,0 +1,142 @@
+/* Add any necessary global styles or reset styles here */
+
+.chart-container {
+    width: 70vw;  /* 70% of the viewport width */
+    height: 90vh; /* 90% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center the text horizontally */
+}
+
+#hivChart, #casesChart {
+    width: 100%;
+    height: 100%;
+}
+
+.about-text {
+    font-size: 1rem; /* Smaller font size */
+    font-family: Arial, sans-serif; /* Font style */
+    line-height: 1.5; /* Line height for better readability */
+}
+
+.stages-text {
+    font-size: 0.875rem; /* Smaller font size */
+    font-family: Arial, sans-serif; /* Font style */
+    line-height: 1.5; /* Line height for better readability */
+}
+
+h2 {
+    font-family: 'Arial', sans-serif; /* Font style */
+    font-weight: bold; /* Bold style */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+.formula, .input-box {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align content horizontally */
+    text-align: center; /* Center-align text */
+    padding: 10px; /* Reduce padding to make the container shorter */
+    margin: 0 auto;
+    max-width: 300px; /* Reduce the max-width to make the container smaller */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Reduce margin to make the container shorter */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block; /* Ensures block-level centering */
+    text-align: center; /* Centers text inside input fields */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.result {
+    margin-top: 10px; /* Reduce margin to make the container shorter */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.container label,
+.container input,
+.container button {
+    margin: 5px 0; /* Reduce margin to make the container shorter */
+    width: 100%; /* Full width */
+    max-width: 300px; /* Max width */
+}
+
+.container input,
+.container button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.container button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background-color: #45a049;
+}
+
+.container .result {
+    margin-top: 10px; /* Reduce margin to make the container shorter */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
